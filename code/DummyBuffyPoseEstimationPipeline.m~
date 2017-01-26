@@ -25,7 +25,7 @@ function out = DummyBuffyPoseEstimationPipeline(buffydir,episodenr)
 
   out(N) = struct('frame',[],'stickmen',[]);
 
-  for i=1:4:N
+  for i=1:2:N
     img = imread(fullfile(buffydir,Files(i).name));
     out(i).frame = str2double(Files(i).name(1:end-4));
     out(i).episode = episodenr;
