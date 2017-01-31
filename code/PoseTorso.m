@@ -69,9 +69,3 @@ y1 = (tan(theta)*(x1-x2) + 2*y)/2;
 y2 = (-tan(theta)*(x1-x2) + 2*y)/2;
 
 coor = [x1 y1 x2 y2];
-
-
-
-
-
-

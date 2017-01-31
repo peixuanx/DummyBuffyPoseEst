@@ -24,8 +24,9 @@ function out = DummyBuffyPoseEstimationPipeline(buffydir,episodenr)
   N = length(Files);
 
   out(N) = struct('frame',[],'stickmen',[]);
-
-  for i=1:4:N
+  %% lF = ReadStickmenAnnotationTxt('../data/buffy_s5e2_sticks.txt'); 
+  
+  for i=1
     img = imread(fullfile(buffydir,Files(i).name));
     out(i).frame = str2double(Files(i).name(1:end-4));
     out(i).episode = episodenr;
@@ -33,13 +34,13 @@ function out = DummyBuffyPoseEstimationPipeline(buffydir,episodenr)
     [coor1 L1] = PoseTorso(maxx, maxy, i);
     [coor2 L2] = Pose(L1, 2, i);
     [coor3 L3] = Pose(L1, 3, i);
+    [coor4 L4] = Pose(L2, 4, i);
+    [coor5 L5] = Pose(L3, 5, i);
     [coor6 L6] = Pose(L1, 6, i);
-    coor = [coor1; coor2; coor3; coor6];
+    coor = [coor1; coor2; coor3; coor4; coor5; coor6];
     figure, DrawStickman(coor', img);
-    %out(i).stickmen = DummyDetect(img);
-    %for j=1:length(out(i).stickmen)
-      %out(i).stickmen(j).coor = DummyPose(img,out(i).stickmen(j).det);
-    %end
+    out(i).stickmen = struct('coor',[]);
+    out(i).stickmen.coor = coor';
   end
 
 end

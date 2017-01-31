@@ -1,0 +1,8 @@
+% Input:
+%   buffydir - relative or absolute path to buffy frames directory
+%   episodenr - episode number (value stored in out(i).episode
+% Output:
+
+buffydir = './../buffy_s5e2_original/';
+episodenr = 2;
+out = DummyBuffyPoseEstimationPipeline(buffydir,episodenr);
