@@ -25,7 +25,7 @@ Lt = length(Bt);
 cost = [];
 for i = 1:Lx
     L = [Bx(i) By(Ly/2) Bt(Lt/2) Bs(Ls/2)];
-    cost = [cost match_energy_cost(L,part,seq)+deformation_cost(Ltorso, L, w)];
+    cost = [cost match_energy_cost(L,part,seq)+deformation_cost(Ltorso, L, w, 1, part)];
 end
 [~, Ix] = min(cost);
 x = Bx(Ix);
@@ -33,7 +33,7 @@ x = Bx(Ix);
 cost = [];
 for i = 1:Ly
     L = [x By(i) Bt(Lt/2) Bs(Ls/2)];
-    cost = [cost match_energy_cost(L,part,seq)+deformation_cost(Ltorso, L, w)];
+    cost = [cost match_energy_cost(L,part,seq)+deformation_cost(Ltorso, L, w, 1, part)];
 end
 [~, Iy] = min(cost);
 y = By(Iy);
@@ -41,7 +41,7 @@ y = By(Iy);
 cost = [];
 for i = 1:Lt
     L = [x y Bt(i) Bs(Ls/2)];
-    cost = [cost match_energy_cost(L,part,seq)+deformation_cost(Ltorso, L, w)];
+    cost = [cost match_energy_cost(L,part,seq)+deformation_cost(Ltorso, L, w, 1, part)];
 end
 [~, It] = min(cost);
 theta = Bt(It);
@@ -49,7 +49,7 @@ theta = Bt(It);
 cost = [];
 for i = 1:Ls
     L = [x y theta Bs(i)];
-    cost = [cost match_energy_cost(L,part,seq)+deformation_cost(Ltorso, L, w)];
+    cost = [cost match_energy_cost(L,part,seq)+deformation_cost(Ltorso, L, w, 1, part)];
 end
 [~, Is] = min(cost);
 scale = Bs(Is);
