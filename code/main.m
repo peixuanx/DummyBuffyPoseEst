@@ -1,3 +1,10 @@
+%% Environment
+close all;
+clear;
+clc;
+startup;
+
+
 %% Prediction
 
 t = datetime('now');

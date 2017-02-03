@@ -26,7 +26,7 @@ function out = DummyBuffyPoseEstimationPipeline(buffydir,episodenr)
   out(N) = struct('frame',[],'stickmen',[]);
   %% lF = ReadStickmenAnnotationTxt('../data/buffy_s5e2_sticks.txt'); 
   
-  for i=1
+  for i=1:N
     img = imread(fullfile(buffydir,Files(i).name));
     out(i).frame = str2double(Files(i).name(1:end-4));
     out(i).episode = episodenr;
