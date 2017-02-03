@@ -10,7 +10,9 @@ startup;
 t = datetime('now');
 buffydir = './../buffy_s5e2_original/';
 episodenr = 2;
+tic
 out = DummyBuffyPoseEstimationPipeline(buffydir,episodenr);
+toc
 filename = ['../', datestr(t),'_result.mat'];
 filename = 'a.mat';
 save(filename, 'out');
